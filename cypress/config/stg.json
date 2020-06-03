@@ -1,0 +1,10 @@
+ {
+  "baseUrl": "https://study.ef.cn/",
+  "auth_api_server": "https://auth-svc-stg.ef.cn/api/v1/auth/login",
+  "pt_api_server":"https://pt-stg.ef.cn/",
+  "env": {
+      "username":"hf3.cn.01",
+      "password":"12345"
+    }
+}
+

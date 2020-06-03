@@ -1,0 +1,20 @@
+{
+  "name": "efkids_cypress",
+  "version": "1.0.0",
+  "description": "web GUI test",
+  "main": "index.js",
+  "dependencies": {
+    "fs-extra": "^9.0.0"
+  },
+  "devDependencies": {
+    "cypress": "^4.5.0",
+    "cypress-xpath": "^1.4.0"
+  },
+  "scripts": {
+    "cypress:run": "node_modules/.bin/cypress run",
+    "cypress:open": "node_modules/.bin/cypress open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "curry sun",
+  "license": "ISC"
+}

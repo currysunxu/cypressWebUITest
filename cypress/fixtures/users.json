@@ -1,0 +1,11 @@
+[
+  {
+    "summary":"pt card pass",
+    "username":"fr.cn.02",
+    "password":"12345"
+    },
+  {"summary":"pt card failure",
+    "username":"ss3.cn.01",
+    "password":"12345"
+  }
+]
