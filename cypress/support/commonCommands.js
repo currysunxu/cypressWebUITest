@@ -1,5 +1,5 @@
-import { decodeJwtToVersionThree,setLocalStorage } from "./utils/frontEndUtil"
-import { testPortal } from '../integration/testData/testLogin.data'
+import {decodeJwtToVersionOne, decodeJwtToVersionThree, setLocalStorage} from "./utils/frontEndUtil"
+import { testPortal } from '../integration/testData/testPortal.data'
 
 // ***********************************************
 // This commondCommand.js shows you how to
@@ -27,8 +27,27 @@ Cypress.Commands.add('loginPortalByApi', () => {
     })
     .its('body.idToken')
     .then((jwtToken) => {
-      testPortal.XEFTOKEN=jwtToken
-      testPortal.version3=decodeJwtToVersionThree(jwtToken)
-      setLocalStorage('portal',JSON.stringify(testPortal))
+        constructPortalStorage(jwtToken)
+        setLocalStorage('portal',JSON.stringify(testPortal))
     })
-  })
+})
+
+Cypress.Commands.add('openNewWindowByVersionOneToken',()=>{
+    cy.window().then((window) =>{
+        debugger
+        console.log("version1:",JSON.parse(window.localStorage.getItem('portal')).version1)
+        var versionOneToken = JSON.parse(window.localStorage.getItem('portal')).version1
+        var newWindowUrl =Cypress.config('hf_study_url')+versionOneToken
+        console.log(newWindowUrl)
+        cy.visit(newWindowUrl)
+    })
+})
+
+function constructPortalStorage(jwtToken) {
+    testPortal.XEFTOKEN = jwtToken
+    testPortal.version1 = decodeJwtToVersionOne(jwtToken)
+    testPortal.version3 = decodeJwtToVersionThree(jwtToken)
+}
+
+
+

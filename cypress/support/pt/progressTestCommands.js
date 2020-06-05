@@ -1,5 +1,5 @@
 // ***********************************************
-// This example commands.js shows you how to
+// encapsulate progress test custom command
 
 Cypress.Commands.add('checkElementPresent', (expectedText) => {
   //check element exist or not
@@ -8,4 +8,10 @@ Cypress.Commands.add('checkElementPresent', (expectedText) => {
   //check element visible or not
   cy.contains(expectedText).should('be.visible')
 
+})
+
+Cypress.Commands.add('checkPtUi', () => {
+  cy.contains('Progress Test').should('be.visible')
+  cy.contains('Book').should('be.visible')
+  cy.contains('Unit').should('be.visible')
 })

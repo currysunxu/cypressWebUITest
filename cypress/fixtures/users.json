@@ -1,11 +1,32 @@
 [
   {
-    "summary":"pt card pass",
-    "username":"fr.cn.02",
+    "type":"small_star_v2",
+    "username":"ss2.cn.auto",
     "password":"12345"
-    },
-  {"summary":"pt card failure",
-    "username":"ss3.cn.01",
+  },
+  {
+    "type":"small_star_v3",
+    "username":"ss3.cn.auto1",
+    "password":"12345"
+  },
+  {
+    "type":"high_flyer_v2",
+    "username":"hf2.cn.auto1",
+    "password":"12345"
+  },
+  {
+    "type":"high_flyer_v3",
+    "username":"hf3.cn.auto1",
+    "password":"12345"
+  },
+  {
+    "type":"traiblazer_v3",
+    "username":"tb3.cn.auto1",
+    "password":"12345"
+  },
+  {
+    "type":"front_runner",
+    "username":"fr.cn.auto",
     "password":"12345"
   }
 ]

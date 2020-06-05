@@ -1,5 +1,6 @@
 {
   "env": {
     "my-var": "ok"
-  }
+  },
+  "chromeWebSecurity": false
 }

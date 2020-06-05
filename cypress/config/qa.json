@@ -3,7 +3,11 @@
   "auth_api_server": "https://auth-svc-qa.ef.cn/api/v1/auth/login",
   "pt_api_server": "https://pt-qa.ef.cn/",
   "env": {
-      "username":"fr.cn.01",
-      "password":"password"
-  }
+    "username": "fr.cn.02",
+    "ss_username": "ss3.cn.01",
+    "hf_username": "hf2.cn.01",
+    "tb_username": "tb3.cn.01",
+    "password": "12345"
+  },
+  "chromeWebSecurity": false
 }

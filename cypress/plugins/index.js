@@ -33,6 +33,6 @@ const  getConfigurationByFile = async (file) => {
 module.exports = (on, config) => {
   // accept a configFile value or use development by default
   console.log(config)
-  const file = config.env.configFile || 'qa'
+  const file = config.env.configFile || 'stg'
   return getConfigurationByFile(file)
 }
