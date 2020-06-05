@@ -3,13 +3,16 @@
   "auth_api_server": "https://auth-svc-stg.ef.cn/api/v1/auth/login",
   "pt_api_server": "https://pt-stg.ef.cn/",
   "hf_study_url": "https://highflyers-staging.ef.cn/Login/StudyAutoLogin?token=",
+  "tb_study_url": "https://trailblazers3-staging.ef.cn/token.html?token=",
+  "fr_study_url": "https://frontrunner-staging.ef.cn/Login/StudyAutoLogin?token=",
+  "mt_study_url": "https://mt-staging.ef.cn/test/auth.html?token=",
   "env": {
-    "username": "hf3.cn.02",
-    "ss_username": "ss3.cn.01",
-    "hf_username": "hf3.cn.02",
-    "tb_username": "tb3.cn.01",
-    "fr_username": "fr.cn.02",
+    "username": "amy.wang",
+    "small_star_v3": "ss3.cn.auto1",
+    "high_flyer_v2": "hf2.cn.auto1",
+    "high_flyer_v3": "hf3.cn.auto1",
+    "traiblazer_v3": "tb3.cn.auto1",
+    "front_runner": "fr.cn.auto",
     "password": "12345"
   }
 }
-
