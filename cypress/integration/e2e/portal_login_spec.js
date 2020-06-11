@@ -55,8 +55,9 @@ describe('Verify each product card', function () {
     cy.portalLogin('username')
   })
 
-  it("Verify grammar pro card", () => {
+  it.only("Verify grammar pro card", () => {
     cy.window_open("Grammar Pro");
+    cy.wait(5000)
     cy.visit('https://grammarpro-staging.ef.cn/#/gl/welcome');
     cy.contains('欢迎来到Grammar Pro')
       .should('be.visible')
