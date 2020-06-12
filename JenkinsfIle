@@ -24,7 +24,7 @@ pipeline {
         sh 'npm --version'
         sh 'pwd'
         sh 'yarn install --frozen-lockfile'
-        sh 'yarn cypress:run --env testEnv=stg  --spec "cypress/integration/e2e/*"' 
+        sh 'yarn cypress:run --headless --browser chrome --env testEnv=stg  --spec "cypress/integration/e2e/*"' 
       }
     }
   }
