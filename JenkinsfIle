@@ -1,12 +1,12 @@
 pipeline {
   agent {
+    label 'ETQA-MAC2'
     // this image provides everything needed to run Cypress
-    docker {
-      label 'ETQA-MAC2'
-      // image '10.128.42.88:5000/cypress/base:10'
-      // image 'cypress/base:10'
-
-    }
+    // docker {
+    //   label 'ETQA-MAC2'
+    //   // image '10.128.42.88:5000/cypress/base:10'
+    //   image 'cypress/base:10'
+    // }
   }
 
   stages {
