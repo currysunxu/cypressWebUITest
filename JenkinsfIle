@@ -5,7 +5,7 @@ pipeline {
     docker {
       label 'CN_Kids_QA_CI'
       // image '10.128.42.88:5000/cypress/base:10'
-      image 'cypress/base:10'
+      image 'cypress/browsers:node10.16.0-chrome77'
     }
   }
 
@@ -24,7 +24,7 @@ pipeline {
         sh 'npm --version'
         sh 'pwd'
         sh 'yarn install --frozen-lockfile'
-        sh 'yarn cypress:run --env testEnv=stg  --spec "cypress/integration/e2e/*"'
+        sh 'yarn cypress:run --env testEnv=stg  --spec "cypress/integration/e2e/*" -headless -b chrome' 
       }
     }
   }
