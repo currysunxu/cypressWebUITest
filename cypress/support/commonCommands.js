@@ -32,14 +32,10 @@ Cypress.Commands.add('loginPortalByApi', () => {
         })
 })
 
-Cypress.Commands.add('openNewWindowByToken', (url, value) => {
+Cypress.Commands.add('openNewWindowByLocalStorage', (url, localStorageKey) => {
     cy.wait(3000)
     cy.window().then((window) => {
-        console.log("version:", JSON.parse(window.localStorage.getItem('portal')))
-        var localVersion = JSON.parse(window.localStorage.getItem('portal'))
-        var token = value === 'version1' ? localVersion.version1 :
-            token === 'version3' ? localVersion.version3 : localVersion.XEFTOKEN
-        var newWindowUrl = Cypress.config(url) + token
+        var newWindowUrl = parseUrlByWindow(window, localStorageKey, url)
         cy.visit(newWindowUrl)
     })
 })
@@ -51,6 +47,19 @@ Cypress.Commands.add('window_open', (text) => {
     cy.contains(text).click()
     cy.get('@windowOpen').should('be.called');
 })
+
+function parseUrlByWindow(window, localStorageKey, url) {
+    console.log("version:", JSON.parse(window.localStorage.getItem('portal')))
+    var localVersion = JSON.parse(window.localStorage.getItem('portal'))
+    var token = localStorageKey === 'version1' ? localVersion.version1 :
+    localStorageKey === 'version3' ? localVersion.version3 : localVersion.XEFTOKEN
+    var newWindowUrl = Cypress.config(url) + token
+    if (url.indexOf('gp') !=- 1) {
+        newWindowUrl = newWindowUrl + "&userId=" + localVersion.userid + "&englishFirstName=" + localVersion.userName
+            + "&marketRegion=" + localVersion.marketRegion
+    }
+    return newWindowUrl
+}
 
 function constructPortalStorage(jwtToken) {
     testPortal.XEFTOKEN = jwtToken

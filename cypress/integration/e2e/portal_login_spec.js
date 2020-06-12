@@ -25,28 +25,28 @@ describe('Login Portal and verify portal homepage', function () {
     cy.portalLogin('high_flyer_v2')
     cy.checkPortalPageLoaded()
     cy.window_open('Start');
-    cy.openNewWindowByToken('hf_study_url', 'version1')
+    cy.openNewWindowByLocalStorage('hf_study_url', 'version1')
   })
 
   it("Given a High Flyer V3 User and Login Then He Can Study Course From Portal", () => {
     cy.portalLogin('high_flyer_v3')
     cy.checkPortalPageLoaded()
     cy.window_open('Start');
-    cy.openNewWindowByToken('hf_study_url', 'version1')
+    cy.openNewWindowByLocalStorage('hf_study_url', 'version1')
   })
 
   it("Given a Traiblazer V3 User and Login Then He Can Study Course From Portal", () => {
     cy.portalLogin('traiblazer_v3')
     cy.checkPortalPageLoaded()
     cy.window_open('Start');
-    cy.openNewWindowByToken('tb_study_url', 'version3')
+    cy.openNewWindowByLocalStorage('tb_study_url', 'version3')
   })
 
   it("Given a Front Runner User and Login Then He Can Study Course From Portal", () => {
     cy.portalLogin('front_runner')
     cy.checkPortalPageLoaded()
     cy.window_open('Start');
-    cy.openNewWindowByToken('fr_study_url', 'version1')
+    cy.openNewWindowByLocalStorage('fr_study_url', 'version1')
   })
 })
 
@@ -55,9 +55,9 @@ describe('Verify each product card', function () {
     cy.portalLogin('username')
   })
 
-  it("Verify grammar pro card", () => {
+  it.only("Verify grammar pro card", () => {
     cy.window_open("Grammar Pro");
-    cy.visit('https://grammarpro-staging.ef.cn/#/gl/welcome');
+    cy.openNewWindowByLocalStorage('gp_study_url', 'version3')
     cy.contains('欢迎来到Grammar Pro')
       .should('be.visible')
   })
@@ -77,7 +77,7 @@ describe('Verify each product card', function () {
 
   it("Verify Mock Test card", () => {
     cy.window_open("Mock Test");
-    cy.openNewWindowByToken('mt_study_url', 'XEFTOKEN')
+    cy.openNewWindowByLocalStorage('mt_study_url', 'XEFTOKEN')
     cy.contains('MOCK TEST').should('be.exist')
   })
 

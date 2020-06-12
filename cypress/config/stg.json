@@ -6,6 +6,7 @@
   "tb_study_url": "https://trailblazers3-staging.ef.cn/token.html?token=",
   "fr_study_url": "https://frontrunner-staging.ef.cn/Login/StudyAutoLogin?token=",
   "mt_study_url": "https://mt-staging.ef.cn/test/auth.html?token=",
+  "gp_study_url": "https://grammarpro-staging.ef.cn/#/gl/learn?isFromOtherWebsite=true&token=",
   "env": {
     "username": "amy.wang",
     "small_star_v3": "ss3.cn.auto1",
