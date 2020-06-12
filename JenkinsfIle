@@ -4,9 +4,8 @@ pipeline {
     // this image provides everything needed to run Cypress
     docker {
       label 'CN_Kids_QA_CI'
-      // image '10.128.42.88:5000/cypress/base:10'
-      // image 'cypress/browsers:node10.16.0-chrome77'
-      image 'cypress/base:10'
+      image 'cypress/browsers:node12.16.2-chrome81-ff75'
+      // image 'cypress/base:10'
     }
   }
 
