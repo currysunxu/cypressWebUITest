@@ -2,7 +2,8 @@ pipeline {
   agent {
     // this image provides everything needed to run Cypress
     docker {
-      image 'cypress/base:10'
+      label 'CI_Kids_QA_Web_Gui'
+      image '10.128.42.88:5000/cypress/base:10'
     }
   }
 
@@ -19,12 +20,12 @@ pipeline {
       steps {
         sh 'npm --version'
         sh 'pwd'
-        sh 'cd Desktop'
+        sh 'cd ~/Desktop'
         sh 'ls'
         sh 'pwd'
-        sh 'yarn install --frozen-lockfile'
+        // sh 'yarn install --frozen-lockfile'
         // sh 'npm install cypress --save-dev'
-        sh 'yarn cypress:run --env testEnv=stg  --spec "cypress/integration/e2e/*"'
+        // sh 'yarn cypress:run --env testEnv=stg  --spec "cypress/integration/e2e/*"'
       }
     }
   }
