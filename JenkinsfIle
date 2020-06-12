@@ -17,8 +17,13 @@ pipeline {
       // }
 
       steps {
-        // sh 'yarn install --frozen-lockfile'
-        sh 'npm install cypress --save-dev'
+        sh 'npm --version'
+        sh 'pwd'
+        sh 'cd Desktop'
+        sh 'ls'
+        sh 'pwd'
+        sh 'yarn install --frozen-lockfile'
+        // sh 'npm install cypress --save-dev'
         sh 'yarn cypress:run --env testEnv=stg  --spec "cypress/integration/e2e/*"'
       }
     }
