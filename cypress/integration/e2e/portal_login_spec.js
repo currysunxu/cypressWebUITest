@@ -55,7 +55,7 @@ describe('Verify each product card', function () {
     cy.portalLogin('username')
   })
 
-  it.only("Verify grammar pro card", () => {
+  it("Verify grammar pro card", () => {
     cy.window_open("Grammar Pro");
     cy.openNewWindowByLocalStorage('gp_study_url', 'version3')
     cy.contains('欢迎来到Grammar Pro')
