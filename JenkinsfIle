@@ -2,7 +2,6 @@ pipeline {
   agent {
     // this image provides everything needed to run Cypress
     docker {
-      label 'CI_Kids_QA_Web_Gui'
       image '10.128.42.88:5000/cypress/base:10'
     }
   }
