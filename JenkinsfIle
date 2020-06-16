@@ -3,7 +3,8 @@ pipeline {
     // label 'ETQA-MAC2'
     // this image provides everything needed to run Cypress
     docker {
-      label 'CN_Kids_QA_CI'
+      // label 'CN_Kids_QA_CI'
+      label 'ETQA-MAC2'
       image 'cypress/browsers:node12.16.2-chrome81-ff75'
       // image 'cypress/base:10'
     }
