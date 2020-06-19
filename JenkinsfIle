@@ -3,7 +3,7 @@ pipeline {
     label 'ETQA-MAC2'
   }
 
-   arameters {
+   parameters {
       choice(name:'environment',choices:['QA','STG','LIVE'],description:'')
    }
 
