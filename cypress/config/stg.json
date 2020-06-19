@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://study-staging.ef.cn/",
+  "baseUrl": "https://e1athena-staging.ef.cn",
   "auth_api_server": "https://auth-svc-stg.ef.cn/api/v1/auth/login",
   "pt_api_server": "https://pt-stg.ef.cn/",
   "hf_study_url": "https://highflyers-staging.ef.cn/Login/StudyAutoLogin?token=",
@@ -7,6 +7,7 @@
   "fr_study_url": "https://frontrunner-staging.ef.cn/Login/StudyAutoLogin?token=",
   "mt_study_url": "https://mt-staging.ef.cn/test/auth.html?token=",
   "gp_study_url": "https://grammarpro-staging.ef.cn/#/gl/learn?isFromOtherWebsite=true&token=",
+  "internal_athena_url": "https://internal-aps-staging-cn.ef.com/api/v3/Login/AthenaSSO",
   "env": {
     "username": "amy.wang",
     "small_star_v3": "ss3.cn.auto1",
@@ -14,6 +15,8 @@
     "high_flyer_v3": "hf3.cn.auto1",
     "traiblazer_v3": "tb3.cn.auto1",
     "front_runner": "fr.cn.auto",
+    "sso_username": "curry.sun@ef.com",
+    "sso_password": "Trumpsb1234",
     "password": "12345"
   }
 }

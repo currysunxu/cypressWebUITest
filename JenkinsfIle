@@ -1,28 +1,19 @@
 pipeline {
   agent {
-    // label 'ETQA-MAC2'
+    label 'ETQA-MAC2'
     // this image provides everything needed to run Cypress
-    docker {
-      label 'CN_Kids_QA_CI'
-      image 'cypress/browsers:node12.16.2-chrome81-ff75'
+    //docker {
+      //label 'CN_Kids_QA_CI'
+      //image 'cypress/browsers:node12.16.2-chrome81-ff75'
       // image 'cypress/base:10'
-    }
+    //}
   }
 
   stages {
     stage('build and test') {
-      // environment {
-      //   // we will be recording test results and video on Cypress dashboard
-      //   // to record we need to set an environment variable
-      //   // we can load the record key variable from credentials store
-      //   // see https://jenkins.io/doc/book/using/using-credentials/
-      //   CYPRESS_RECORD_KEY = credentials('e1stashreader')
-      // }
 
       steps {
-        sh "echo $PATH"
         sh 'npm --version'
-        sh 'pwd'
         sh 'yarn install --frozen-lockfile'
         sh 'yarn cypress:run --headless --browser chrome --env testEnv=stg  --spec "cypress/integration/e2e/*"' 
       }

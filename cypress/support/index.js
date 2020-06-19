@@ -15,8 +15,9 @@
 
 // Import commands.js using ES2015 syntax:
 import './commonCommands'
-import './pt/progressTestCommands'
+import './progressTestCommands'
 import './portalTestCommands'
+import './athenaCommands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

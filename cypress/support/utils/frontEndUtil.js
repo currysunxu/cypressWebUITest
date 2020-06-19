@@ -1,7 +1,3 @@
-// import jwt_decode from 'jwt-decode';
-
-import {testPortal} from "../../integration/testData/testPortal.data";
-
 export function decodeJwtToVersionThree(jwtToken) {
     // var decoded = jwt_decode(token);
     // console.log(decoded);
