@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://e1athena-staging.ef.cn",
+  "baseUrl": "https://study-staging.ef.cn/",
   "auth_api_server": "https://auth-svc-stg.ef.cn/api/v1/auth/login",
   "pt_api_server": "https://pt-stg.ef.cn/",
   "hf_study_url": "https://highflyers-staging.ef.cn/Login/StudyAutoLogin?token=",

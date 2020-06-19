@@ -10,6 +10,7 @@ pipeline {
         sh 'npm --version'
         sh 'yarn install --frozen-lockfile'
         sh 'yarn cypress:run --env testEnv=stg  --spec "cypress/integration/e2e/*" --reporter=junit'
+        junit 'test-results.xml'
       }
     }
   }

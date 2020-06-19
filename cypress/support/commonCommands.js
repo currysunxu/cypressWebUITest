@@ -66,33 +66,4 @@ function parseUrlByWindow(window, localStorageKey, url) {
     return newWindowUrl
 }
 
-Cypress.Commands.add('loginAthenaByAzureSso', ( userId, pwd ) => {
-    cy.request({
-        method:'POST',
-        url: Cypress.config('internal_athena_url'),
-        headers:
-            {
-                'X-BA-TOKEN':'3C40AB54-798C-4517-A82A-26017EE98285'
-            },
-        body: {
-            "AccessIdentifier" : userId,
-            "Token" : pwd,
-            "Realm": Cypress.config('baseUrl').split('//')[1],
-            "Platform" : 0,
-            "DeviceType": 0,
-            "DeviceId": "",
-            "DeviceName":""
-        }
-    })
-        .then((resp)=>{
-            const token = resp.body['Token']
-            debugger
-            console.log(token)
-            cy.setCookie("token",token)
-            cy.setCookie("userId", userId);
-            cy.setCookie("userName", userId);
-            cy.visit('/')
-        })
-})
-
 
