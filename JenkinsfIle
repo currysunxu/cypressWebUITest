@@ -3,14 +3,21 @@ pipeline {
     label 'ETQA-MAC2'
   }
 
+   arameters {
+      choice(name:'environment',choices:['QA','STG','LIVE'],description:'')
+   }
+
   stages {
     stage('build and test') {
 
       steps {
         sh 'npm --version'
-        sh 'yarn install --frozen-lockfile'
-        sh 'yarn cypress:run --env testEnv=stg  --spec "cypress/integration/e2e/*" --reporter=junit'
-        junit 'test-results.xml'
+        script {
+          case_tag = "${params.environment}".toLowerCase()
+          sh 'yarn install --frozen-lockfile'
+          sh 'yarn cypress:run --browser chrome --env testEnv=${case_tag}  --spec "cypress/integration/e2e/*"'
+          junit 'results/test-results.xml'
+         }
       }
     }
   }

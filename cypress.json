@@ -3,5 +3,10 @@
   "env": {
     "my-var": "ok"
   },
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "results/test-results.xml",
+    "toConsole": true
+  }
 }

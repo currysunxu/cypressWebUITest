@@ -9,7 +9,7 @@ Cypress.Commands.add('loginAthenaByAzureSso', ( userId, pwd ) => {
     body: {
       "AccessIdentifier" : userId,
       "Token" : pwd,
-      "Realm": Cypress.config('baseUrl').split('//')[1],
+      "Realm": Cypress.config('athena_url').split('//')[1],
       "Platform" : 0,
       "DeviceType": 0,
       "DeviceId": "",
@@ -23,7 +23,7 @@ Cypress.Commands.add('loginAthenaByAzureSso', ( userId, pwd ) => {
         cy.setCookie("token",token)
         cy.setCookie("userId", userId);
         cy.setCookie("userName", userId);
-        cy.visit('/')
+        cy.visit(Cypress.config('athena_url'))
       })
 })
 
@@ -39,6 +39,6 @@ Cypress.Commands.add('checkAthenaHomePage', () => {
   cy.contains('Frontrunner').should('be.visible')
   cy.contains('Academies').should('be.visible')
   cy.contains('OMNI').should('be.visible')
-  cy.contains("Let's talk").should('be.visible')
+  cy.contains("Let's Talk!").should('be.visible')
 
 })
