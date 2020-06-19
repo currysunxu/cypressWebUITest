@@ -1,12 +1,6 @@
 pipeline {
   agent {
     label 'ETQA-MAC2'
-    // this image provides everything needed to run Cypress
-    //docker {
-      //label 'CN_Kids_QA_CI'
-      //image 'cypress/browsers:node12.16.2-chrome81-ff75'
-      // image 'cypress/base:10'
-    //}
   }
 
   stages {
@@ -15,7 +9,7 @@ pipeline {
       steps {
         sh 'npm --version'
         sh 'yarn install --frozen-lockfile'
-        sh 'yarn cypress:run --headless --browser chrome --env testEnv=stg  --spec "cypress/integration/e2e/*"' 
+        sh 'yarn cypress:run --env testEnv=stg  --spec "cypress/integration/e2e/*" --reporter=junit'
       }
     }
   }
