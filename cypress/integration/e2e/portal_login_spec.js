@@ -81,10 +81,12 @@ describe('Verify each product card', function () {
     cy.contains('MOCK TEST').should('be.exist')
   })
 
-  it.only("Verify Progress Test card", () => {
+  it("Verify Progress Test card", () => {
     cy.checkPortalPageLoaded()
     cy.contains("Progress Test").click()
     cy.contains("Progress Test").should('be.visible')
+    cy.checkPtUi()
     cy.get('*[class^="back"]').click()
+    cy.checkPortalPageLoaded()
   })
 })
