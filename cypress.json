@@ -4,9 +4,8 @@
     "my-var": "ok"
   },
   "chromeWebSecurity": false,
-  "reporter": "junit",
+  "reporter": "cypress-multi-reporters",
   "reporterOptions": {
-    "mochaFile": "results/test-results.xml",
-    "toConsole": true
+    "configFile": "reporter-config.json"
   }
 }

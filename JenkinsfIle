@@ -15,14 +15,14 @@ pipeline {
         script {
           case_tag = "${params.environment}".toLowerCase()
           sh 'yarn install --frozen-lockfile'
-          sh 'yarn cypress:run --browser chrome --env testEnv=${case_tag}  --spec "cypress/integration/e2e/*"'
+          sh 'yarn cypress:run --browser chrome --env testEnv=${case_tag}  --spec "cypress/integration/e2e/*" --reporter-options configFile=reporter-config.json'
          }
       }
     }
   }
  post {
     always {
-      junit 'results/test-results.xml'
+      junit 'results/result*.xml'
     }
  }
 
