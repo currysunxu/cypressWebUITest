@@ -1,3 +1,4 @@
+require('cypress-plugin-retries')
 // ***********************************************************
 // This example support/index.js is processed and
 // loaded automatically before your test files.
@@ -26,3 +27,4 @@ import './athenaCommands'
 //     cy.log('testing env is \n ${JSON.stringify(targetEnv)}')
 //     Cypress.config('baseUrl',Cypress.env(TARGET_ENV).Url)
 // })
+

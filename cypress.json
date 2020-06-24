@@ -1,7 +1,7 @@
 {
   "defaultCommandTimeout": 15000,
   "env": {
-    "my-var": "ok"
+    "RETRIES": 2
   },
   "chromeWebSecurity": false,
   "reporter": "cypress-multi-reporters",
