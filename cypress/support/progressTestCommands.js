@@ -15,3 +15,8 @@ Cypress.Commands.add('checkPtUi', () => {
   cy.contains('Book').should('be.visible')
   cy.contains('Unit').should('be.visible')
 })
+
+Cypress.Commands.add('enterProgressTest', () => {
+  cy.contains("Progress Test").click()
+  cy.contains("Progress Test").should('be.visible')
+})

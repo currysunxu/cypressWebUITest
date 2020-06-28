@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import { decodeJwtToVersionOne, decodeJwtToVersionThree, setLocalStorage } from "./utils/frontEndUtil"
 import { testPortal,buildTestPortal } from '../integration/testData/testPortal.data'
 
