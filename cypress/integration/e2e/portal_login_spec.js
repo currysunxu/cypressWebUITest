@@ -69,7 +69,7 @@ describe('Verify each product card', function () {
 
   it("Verify Online Class card", () => {
     cy.window_open("Online Class");
-    cy.visit('https://study-online-staging.ef.cn/')
+    cy.openNewWindowByLocalStorage('osd_study_url', 'XEFTOKEN')
     checkOnlineClassUI()
   })
 
