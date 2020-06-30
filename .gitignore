@@ -1,3 +1,9 @@
 node_modules/
 .idea/
 .vscode/
+cypress/videos
+cypress/screenshots
+./.DS_Store
+.DS_Store
+test-results.xml
+results/

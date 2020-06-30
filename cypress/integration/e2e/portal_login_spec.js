@@ -1,52 +1,58 @@
+/// <reference types="cypress" />
+
+const checkGrammarProUI = () => {
+  cy.contains('欢迎来到Grammar Pro')
+  .should('be.visible')
+}
+
+const checkMockTestUI = () => {
+  cy.contains('MOCK TEST').should('be.exist')
+}
+
+const checkOnlineClassUI = () => {
+  cy.get('.ef-osd-resource-content')
+  .should('be.exist')
+}
+
+const checkStoryTellerUI = () => {
+  cy.get('.ef-container').first().should('have.text', 'Storytellers')
+}
+
+
 describe('Login Portal and verify portal homepage', function () {
 
   it("Given a small_star_v3 User and Login Then He Can Study Course From Portal", () => {
     cy.portalLogin('small_star_v3')
     cy.checkPortalPageLoaded()
-    cy.contains("Get the App").click()
-    //Check the pop up displays
-    cy.should('exist', '.switch-scrolling-effect')
-    cy.get('*[class^="sp-banner-dialog__title"]')
-      .should('have.text', 'Scan & Start')
-    cy.get('*[class^="sp-banner-dialog__content"]>div')
-      .should('have.length', 2)
-      .should('be.visible')
-    cy.contains("iOS")
-      .should('be.visible')
-    cy.contains("Android")
-      .should('be.visible')
-    //Click on the x icon will close the pop up
-    cy.get('*[class^="-close"]').click()
-    cy.get('.rc-dialog-mask-hidden')
-      .should('exist')
+    cy.smallStarPortalCheck()
   })
 
   it("Given a High Flyer V2 User and Login Then He Can Study Course From Portal", () => {
     cy.portalLogin('high_flyer_v2')
     cy.checkPortalPageLoaded()
     cy.window_open('Start');
-    cy.openNewWindowByToken('hf_study_url', 'version1')
+    cy.openNewWindowByLocalStorage('hf_study_url', 'version1')
   })
 
   it("Given a High Flyer V3 User and Login Then He Can Study Course From Portal", () => {
     cy.portalLogin('high_flyer_v3')
     cy.checkPortalPageLoaded()
     cy.window_open('Start');
-    cy.openNewWindowByToken('hf_study_url', 'version1')
+    cy.openNewWindowByLocalStorage('hf_study_url', 'version1')
   })
 
   it("Given a Traiblazer V3 User and Login Then He Can Study Course From Portal", () => {
     cy.portalLogin('traiblazer_v3')
     cy.checkPortalPageLoaded()
     cy.window_open('Start');
-    cy.openNewWindowByToken('tb_study_url', 'version3')
+    cy.openNewWindowByLocalStorage('tb_study_url', 'version3')
   })
 
   it("Given a Front Runner User and Login Then He Can Study Course From Portal", () => {
     cy.portalLogin('front_runner')
     cy.checkPortalPageLoaded()
     cy.window_open('Start');
-    cy.openNewWindowByToken('fr_study_url', 'version1')
+    cy.openNewWindowByLocalStorage('fr_study_url', 'version1')
   })
 })
 
@@ -57,34 +63,32 @@ describe('Verify each product card', function () {
 
   it("Verify grammar pro card", () => {
     cy.window_open("Grammar Pro");
-    cy.visit('https://grammarpro-staging.ef.cn/#/gl/welcome');
-    cy.contains('欢迎来到Grammar Pro')
-      .should('be.visible')
-  })
+    cy.openNewWindowByLocalStorage('gp_study_url', 'version3')
+    checkGrammarProUI()
+    })
 
   it("Verify Online Class card", () => {
     cy.window_open("Online Class");
-    cy.visit('https://study-online-staging.ef.cn/')
-    cy.get('.ef-osd-resource-content')
-      .should('be.exist')
+    cy.openNewWindowByLocalStorage('osd_study_url', 'XEFTOKEN')
+    checkOnlineClassUI()
   })
 
   it("Verify Story Teller card", () => {
     cy.window_open("Storytellers");
     cy.visit('https://study-staging.ef.cn/portal/#/story-teller')
-    cy.get('.ef-container').first().should('have.text', 'Storytellers')
+    checkStoryTellerUI()
   })
 
   it("Verify Mock Test card", () => {
     cy.window_open("Mock Test");
-    cy.openNewWindowByToken('mt_study_url', 'XEFTOKEN')
-    cy.contains('MOCK TEST').should('be.exist')
+    cy.openNewWindowByLocalStorage('mt_study_url', 'XEFTOKEN')
+    checkMockTestUI()
   })
 
   it("Verify Progress Test card", () => {
-    cy.contains("Progress Test").click()
-    cy.contains("Progress Test").should('be.visible')
-    cy.get('*[class^="back"]').click()
     cy.checkPortalPageLoaded()
+    cy.enterProgressTest()
+    cy.checkPtUi()
   })
 })
+

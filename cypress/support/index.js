@@ -1,3 +1,4 @@
+require('cypress-plugin-retries')
 // ***********************************************************
 // This example support/index.js is processed and
 // loaded automatically before your test files.
@@ -15,8 +16,9 @@
 
 // Import commands.js using ES2015 syntax:
 import './commonCommands'
-import './pt/progressTestCommands'
+import './progressTestCommands'
 import './portalTestCommands'
+import './athenaCommands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
@@ -25,3 +27,4 @@ import './portalTestCommands'
 //     cy.log('testing env is \n ${JSON.stringify(targetEnv)}')
 //     Cypress.config('baseUrl',Cypress.env(TARGET_ENV).Url)
 // })
+

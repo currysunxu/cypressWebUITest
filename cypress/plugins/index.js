@@ -32,7 +32,16 @@ const  getConfigurationByFile = async (file) => {
 // plugins file
 module.exports = (on, config) => {
   // accept a configFile value or use development by default
+  on('before:browser:launch', (browser = {}, launchOptions) => {
+    if (browser.name === 'chrome') {
+      launchOptions.args.push('--disable-dev-shm-usage')
+      return launchOptions
+    }
+    return launchOptions
+  })
   console.log(config)
   const file = config.env.configFile || 'stg'
   return getConfigurationByFile(file)
+  
 }
+

@@ -1,0 +1,36 @@
+pipeline {
+  agent {
+    label 'ETQA-MAC2'
+  }
+
+   parameters {
+      choice(name:'environment',choices:['QA','STG','LIVE'],description:'')
+   }
+
+   environment {
+        case_tag = 'stg'
+   }
+
+  stages {
+    stage('build and test') {
+
+      steps {
+        sh 'npm --version'
+        script {
+          if (env.environment == 'QA')
+              case_tag = 'qa'
+          if (env.environment == 'LIVE')
+              case_tag = 'live'
+
+          sh 'yarn install --frozen-lockfile'
+          sh 'yarn cypress:run --browser chrome --env testEnv=${case_tag}  --spec "cypress/integration/e2e/*" --reporter-options configFile=reporter-config.json'
+         }
+      }
+    }
+  }
+ post {
+    always {
+      junit 'results/result*.xml'
+    }
+  }
+}
