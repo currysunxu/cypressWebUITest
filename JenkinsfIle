@@ -12,9 +12,9 @@ pipeline {
 
       steps {
         sh 'npm --version'
-        sh 'echo ${case_tag}'
+        sh 'echo "first"+${case_tag}'
         script {
-          case_tag = "${params.environment}".toLowerCase()
+          case_tag = "${parameters.environment}".toLowerCase()
           sh 'echo ${case_tag}'
           if (case_tag == 'qa') {
              case_tag = 'qa'
