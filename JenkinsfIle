@@ -24,7 +24,7 @@ pipeline {
           case_tag = "${params.environment}".toLowerCase()
           sh 'echo ${case_tag}'
           sh 'yarn install --frozen-lockfile'
-          sh 'yarn cypress:run --browser chrome --env testEnv=${case_tag}  --spec "cypress/integration/e2e/*" --reporter-options configFile=reporter-config.json'
+          sh 'yarn cypress:run --browser chrome --env testEnv=qa  --spec "cypress/integration/e2e/*" --reporter-options configFile=reporter-config.json'
          }
       }
     }
