@@ -16,15 +16,13 @@ pipeline {
 
       steps {
         sh 'npm --version'
+
         script {
-          if (env.environment == 'QA'){
-                case_tag = 'qa'
-          }
-          else if (env.environment == 'LIVE'){
-                case_tag = 'live'
-          }
-          echo "testing case_tag"
-          echo $case_tag"
+          case_tag = "${params.environment}".toLowerCase()
+          if (case_tag == 'qa') {
+              case_tag = 'qa'
+          } else if (case_tag == 'live')
+              case_tag = 'live'
           sh 'yarn install --frozen-lockfile'
           sh 'yarn cypress:run --browser chrome --env testEnv=${case_tag}  --spec "cypress/integration/e2e/*" --reporter-options configFile=reporter-config.json'
          }
