@@ -7,12 +7,16 @@ pipeline {
       choice(name:'environment',choices:['QA','STG','LIVE'],description:'')
    }
 
+   environment {
+        case_tag = 'stg'
+   }
+
   stages {
     stage('build and test') {
 
       steps {
         sh 'npm --version'
-        sh 'echo "first"+env.environment'
+        sh 'echo "first"+${env.environment}'
         script {
           if (env.environment == 'QA')
             case_tag = 'qa'
