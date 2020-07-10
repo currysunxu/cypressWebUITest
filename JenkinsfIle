@@ -17,11 +17,12 @@ pipeline {
       steps {
         sh 'npm --version'
         script {
-          if (env.environment == 'QA')
-              case_tag = 'qa'
-          if (env.environment == 'LIVE')
-              case_tag = 'live'
-
+          if (env.environment == 'QA'){
+             case_tag = 'qa'
+          }
+          else if (env.environment == 'LIVE'){
+             case_tag = 'live'
+          }
           sh 'yarn install --frozen-lockfile'
           sh 'yarn cypress:run --browser chrome --env testEnv=${case_tag}  --spec "cypress/integration/e2e/*" --reporter-options configFile=reporter-config.json'
          }
@@ -31,6 +32,15 @@ pipeline {
  post {
     always {
       junit 'results/result*.xml'
+    }
+    failure {
+        emailext (
+            subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+            body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+                <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME}          [${env.BUILD_NUMBER}]</a>"</p>""",
+            to: "curry.sun@ef.com,nancy.zhangcr@ef.com,Eileen.Chen@EF.com",
+            from: "qa.testauto@ef.com"
+        )
     }
   }
 }
