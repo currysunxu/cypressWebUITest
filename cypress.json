@@ -1,6 +1,5 @@
 {
   "defaultCommandTimeout": 15000,
-  "pageLoadTimeoutpage": 120000,
   "env": {
     "RETRIES": 1
   },
