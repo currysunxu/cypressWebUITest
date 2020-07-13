@@ -7,7 +7,7 @@ describe.only(' portal login page custom commands', function () {
     })
 
     it(' product window open', function () {
-        cy.contains("Let’s practice!").should('be.visible')
+        cy.get('.sp-banner__title').should('be.visible')
         cy.openNewWindowByLocalStorage('hf_study_url', 'version1')
         cy.get('.NHF_Web_Home_Logo').should('be.visible')
         cy.get('.NHF_Web_Home_Name').should('be.visible')

@@ -14,9 +14,8 @@ Cypress.Commands.add('loginPortalByUI', (username, password) => {
     cy.visit('/')
     cy.get('[type=text]').type(username)
     cy.get('[type=password]').type(password)
-    cy.contains('登录').click()
+    cy.contains('登录').click({force:true})
 })
-
 
 Cypress.Commands.add('loginPortalByApi', (userName,password) => {
     console.log("test" + Cypress.config('auth_api_server'))
@@ -47,11 +46,18 @@ Cypress.Commands.add('openNewWindowByLocalStorage', (url, localStorageKey) => {
     })
 })
 
-Cypress.Commands.add('window_open', (text) => {
+Cypress.Commands.add('window_open', (text, type) => {
     cy.window().then((win) => {
         cy.stub(win, 'open').as('windowOpen')
     })
-    cy.contains(text).click()
+    // find element by text
+    if (type == "text") {
+        cy.contains(text).click({force:true})
+    }
+    // find element by class
+    else if (type == "class") {
+        cy.get('*[class^="' + text + '"]').click({force:true})
+    }
     cy.get('@windowOpen').should('be.called');
 })
 
