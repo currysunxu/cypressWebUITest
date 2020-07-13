@@ -13,11 +13,11 @@ Cypress.Commands.add('checkPortalPageLoaded', () => {
 })
 
 Cypress.Commands.add('smallStarPortalCheck', () => {
-  cy.contains("下载应用").click()
+  cy.get('*[class^="sp-banner-animation__btn"]').click()
   //Check the pop up displays
   cy.should('exist', '.switch-scrolling-effect')
   cy.get('*[class^="sp-banner-dialog__title"]')
-    .should('have.text', ' 扫码开始下载')
+    .should('be.visible')
   cy.get('*[class^="sp-banner-dialog__content"]>div')
     .should('have.length', 2)
     .should('be.visible')
