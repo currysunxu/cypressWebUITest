@@ -5,7 +5,7 @@ describe('EF portal login page custom commands', function () {
     
     beforeEach(function setUser() {
         // var hfv2 = user.filter(function (e) { return e.type == "high_flyer_v2";})[0]
-        cy.loginPortalByUI(Cypress.env('username'), Cypress.env('password'))
+        cy.loginPortalByUI(Cypress.env('pt_user'), Cypress.env('password'))
     })
 
 

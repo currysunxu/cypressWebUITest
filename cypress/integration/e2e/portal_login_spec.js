@@ -30,28 +30,28 @@ describe('Login Portal and verify portal homepage', function () {
   it("Given a High Flyer V2 User and Login Then He Can Study Course From Portal", () => {
     cy.portalLogin('high_flyer_v2')
     cy.checkPortalPageLoaded()
-    cy.window_open('Start');
+    cy.window_open("sp-banner-animation__btn", "class");
     cy.openNewWindowByLocalStorage('hf_study_url', 'version1')
   })
 
   it("Given a High Flyer V3 User and Login Then He Can Study Course From Portal", () => {
     cy.portalLogin('high_flyer_v3')
     cy.checkPortalPageLoaded()
-    cy.window_open('Start');
+    cy.window_open("sp-banner-animation__btn", "class");
     cy.openNewWindowByLocalStorage('hf_study_url', 'version1')
   })
 
   it("Given a Traiblazer V3 User and Login Then He Can Study Course From Portal", () => {
     cy.portalLogin('traiblazer_v3')
     cy.checkPortalPageLoaded()
-    cy.window_open('Start');
+    cy.window_open("sp-banner-animation__btn", "class");
     cy.openNewWindowByLocalStorage('tb_study_url', 'version3')
   })
 
   it("Given a Front Runner User and Login Then He Can Study Course From Portal", () => {
     cy.portalLogin('front_runner')
     cy.checkPortalPageLoaded()
-    cy.window_open('Start');
+    cy.window_open("sp-banner-animation__btn", "class");
     cy.openNewWindowByLocalStorage('fr_study_url', 'version1')
   })
 })
@@ -62,25 +62,25 @@ describe('Verify each product card', function () {
   })
 
   it("Verify grammar pro card", () => {
-    cy.window_open("Grammar Pro");
+    cy.window_open("Grammar Pro", "text");
     cy.openNewWindowByLocalStorage('gp_study_url', 'version3')
     checkGrammarProUI()
     })
 
   it("Verify Online Class card", () => {
-    cy.window_open("Online Class");
+    cy.window_open("Online Class", "text");
     cy.openNewWindowByLocalStorage('osd_study_url', 'XEFTOKEN')
     checkOnlineClassUI()
   })
 
   it("Verify Story Teller card", () => {
-    cy.window_open("Storytellers");
+    cy.window_open("Storytellers", "text");
     cy.visit('https://study-staging.ef.cn/portal/#/story-teller')
     checkStoryTellerUI()
   })
 
   it("Verify Mock Test card", () => {
-    cy.window_open("Mock Test");
+    cy.window_open("Mock Test", "text");
     cy.openNewWindowByLocalStorage('mt_study_url', 'XEFTOKEN')
     checkMockTestUI()
   })
