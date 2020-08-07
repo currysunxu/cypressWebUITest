@@ -34,7 +34,7 @@ describe('EF portal login page custom commands', function () {
         cy.contains("Waiting for your score.").should('have.text',"Waiting for your score.")
     })
 
-    it.only('check progress test result', function () {
+    it('check progress test result', function () {
         cy.enterProgressTest()
         cy.xpath("//div[text()='Waiting for your score.']/parent::div/parent::div/div[2]//a").click()
         cy.contains("Your total score will be available after your writing and speaking assessment.").should('have.text',"Your total score will be available after your writing and speaking assessment.")
