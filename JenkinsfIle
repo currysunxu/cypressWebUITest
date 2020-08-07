@@ -34,11 +34,11 @@ pipeline {
       junit 'results/result*.xml'
     }
     failure {
-        emailext (
+         emailext (
             subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-            body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME}          [${env.BUILD_NUMBER}]</a>"</p>""",
-            to: "curry.sun@ef.com,nancy.zhangcr@ef.com,Eileen.Chen@EF.com",
+            body: '''${SCRIPT, template="groovy-html.template"}''',
+            mimeType: 'text/html',
+            to: "curry.sun@ef.com,nancy.zhangcr@ef.com,cindy.song@ef.com,Eileen.Chen@ef.com",
             from: "qa.testauto@ef.com"
         )
     }
