@@ -11,12 +11,12 @@ Cypress.Commands.add('checkElementPresent', (expectedText) => {
 })
 
 Cypress.Commands.add('checkPtUi', () => {
-  cy.contains('Progress Test').should('be.visible')
+  cy.contains('Unit Quiz').should('be.visible')
   cy.contains('Book').should('be.visible')
   cy.contains('Unit').should('be.visible')
 })
 
 Cypress.Commands.add('enterProgressTest', () => {
-  cy.contains("Progress Test").click()
-  cy.contains("Progress Test").should('be.visible')
+  cy.contains("Unit Quiz").click()
+  cy.contains("Unit Quiz").should('be.visible')
 })
