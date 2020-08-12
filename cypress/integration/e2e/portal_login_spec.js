@@ -69,19 +69,20 @@ describe('Verify each product card', function () {
 
   it("Verify Online Class card", () => {
     cy.window_open("Online Class", "text");
-    cy.openNewWindowByLocalStorage('osd_study_url', 'XEFTOKEN')
+    cy.openNewWindowByLocalStorage('osd_study_url', 'idToken')
     checkOnlineClassUI()
   })
 
   it("Verify Story Teller card", () => {
+    debugger
     cy.window_open("Storytellers", "text");
-    cy.visit('https://study-staging.ef.cn/portal/#/story-teller')
+    cy.visit(Cypress.config('baseUrl')+('portal/#/story-teller'))
     checkStoryTellerUI()
   })
 
   it("Verify Mock Test card", () => {
     cy.window_open("Mock Test", "text");
-    cy.openNewWindowByLocalStorage('mt_study_url', 'XEFTOKEN')
+    cy.openNewWindowByLocalStorage('mt_study_url', 'idToken')
     checkMockTestUI()
   })
 
