@@ -64,8 +64,8 @@ Cypress.Commands.add('window_open', (text, type) => {
 function parseUrlByWindow(window, localStorageKey, url) {
     console.log("version:", JSON.parse(window.localStorage.getItem('portal')))
     var localVersion = JSON.parse(window.localStorage.getItem('portal'))
-    var token = localStorageKey === 'version1' ? localVersion.version1 :
-    localStorageKey === 'version3' ? localVersion.version3 : localVersion.XEFTOKEN
+    var token = localStorageKey === 'version1' ? localVersion.v1Token :
+    localStorageKey === 'version3' ? localVersion.v3Token : localVersion.idToken
     var newWindowUrl = Cypress.config(url) + token
     if (url.indexOf('gp') !=- 1) {
         newWindowUrl = newWindowUrl + "&userId=" + localVersion.userid + "&englishFirstName=" + localVersion.userName
