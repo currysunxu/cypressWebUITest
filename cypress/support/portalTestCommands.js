@@ -16,9 +16,9 @@ Cypress.Commands.add('smallStarPortalCheck', () => {
   cy.get('*[class^="sp-banner-animation__btn"]').click()
   //Check the pop up displays
   cy.should('exist', '.switch-scrolling-effect')
-  cy.get('*[class^="sp-banner-dialog__title"]')
+  cy.get('*[class^="c-qr-code__title"]')
     .should('be.visible')
-  cy.get('*[class^="sp-banner-dialog__content"]>div')
+  cy.get('*[class^="c-qr-code__content"]>div')
     .should('have.length', 2)
     .should('be.visible')
   cy.contains("iOS")

@@ -74,7 +74,6 @@ describe('Verify each product card', function () {
   })
 
   it("Verify Story Teller card", () => {
-    debugger
     cy.window_open("Storytellers", "text");
     cy.visit(Cypress.config('baseUrl')+('portal/#/story-teller'))
     checkStoryTellerUI()
@@ -86,7 +85,7 @@ describe('Verify each product card', function () {
     checkMockTestUI()
   })
 
-  it("Verify Progress Test card", () => {
+  it("Verify Unit Quiz card", () => {
     cy.checkPortalPageLoaded()
     cy.enterProgressTest()
     cy.checkPtUi()

@@ -17,6 +17,7 @@ Cypress.Commands.add('checkPtUi', () => {
 })
 
 Cypress.Commands.add('enterProgressTest', () => {
-  cy.contains("Unit Quiz").click()
+  cy.window_open("Unit Quiz", "text");
+  cy.openNewWindowByLocalStorage('pt_study_url', 'idToken')
   cy.contains("Unit Quiz").should('be.visible')
 })
