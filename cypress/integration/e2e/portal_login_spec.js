@@ -6,7 +6,7 @@ const checkGrammarProUI = () => {
 }
 
 const checkMockTestUI = () => {
-  cy.contains('MOCK TEST').should('be.exist')
+  cy.contains('Mock Test').should('be.exist')
 }
 
 const checkOnlineClassUI = () => {
