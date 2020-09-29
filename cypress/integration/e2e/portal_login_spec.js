@@ -2,7 +2,7 @@
 
 const checkGrammarProUI = () => {
   cy.contains('欢迎来到Grammar Pro')
-  .should('be.visible')
+      .should('be.visible')
 }
 
 const checkMockTestUI = () => {
@@ -11,7 +11,7 @@ const checkMockTestUI = () => {
 
 const checkOnlineClassUI = () => {
   cy.get('.ef-osd-resource-content')
-  .should('be.exist')
+      .should('be.exist')
 }
 
 const checkStoryTellerUI = () => {
@@ -65,7 +65,7 @@ describe('Verify each product card', function () {
     cy.window_open("Grammar Pro", "text");
     cy.openNewWindowByLocalStorage('gp_study_url', 'version3')
     checkGrammarProUI()
-    })
+  })
 
   it("Verify Online Class card", () => {
     cy.window_open("Online Class", "text");

@@ -1,9 +1,26 @@
 {
   "baseUrl": "https://study.ef.cn/",
   "auth_api_server": "https://auth-svc.ef.cn/api/v1/auth/login",
-  "pt_api_server":"https://pt.ef.cn/",
+  "pt_api_server": "https://pt.ef.cn/",
+  "hf_study_url": "https://highflyers.ef.cn/Login/StudyAutoLogin?token=",
+  "tb_study_url": "https://trailblazers3.ef.cn/token.html?token=",
+  "fr_study_url": "https://frontrunner.ef.cn/Login/StudyAutoLogin?token=",
+  "mt_study_url": "https://mt.ef.cn/test/auth.html?token=",
+  "gp_study_url": "https://grammarpro.ef.cn/#/gl/learn?isFromOtherWebsite=true&token=",
+  "osd_study_url": "https://study-online.ef.cn/auth?token=",
+  "pt_study_url": "https://pt.ef.cn/#/auth-from-portal/?course=HF&token=",
+  "athena_url": "https://e1athena.ef.cn",
+  "internal_athena_url": "https://internal-aps-cn.ef.com/api/v3/Login/AthenaSSO",
   "env": {
-      "username":"hf3.cn.01",
-      "password":"12345"
-    }
+    "username": "w.test",
+    "small_star_v3": "ss3.cn.auto1",
+    "high_flyer_v2": "hf2.cn.auto1",
+    "high_flyer_v3": "hf3.cn.auto1",
+    "traiblazer_v3": "tb3.cn.auto1",
+    "front_runner": "fr.cn.auto",
+    "pt_user":"amy.wang",
+    "sso_username": "athena.e1@ef.com",
+    "sso_password": "efef@444",
+    "password": "12345"
+  }
 }

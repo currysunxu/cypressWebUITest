@@ -10,5 +10,5 @@ This project provides a solution for Web Gui Automation test .
 
 Follow the instructions below.
 
-1. Clone the repository `ssh://git@bitbucket.eflabs.cn:7999/ebrew/kids-ui-automation.git`.
+1. Clone the repository `git clone git@bitbucket.org:english1/kids-ui-automation.git`.
 2. Install dependencies `npm install`.

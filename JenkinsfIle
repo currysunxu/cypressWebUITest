@@ -24,7 +24,7 @@ pipeline {
              case_tag = 'live'
           }
           sh 'yarn install --frozen-lockfile'
-          sh 'yarn cypress:run --env testEnv=${case_tag}  --spec "cypress/integration/e2e/*" --reporter-options configFile=reporter-config.json'
+          sh 'yarn cypress:run --env configFile=${case_tag}  --spec "cypress/integration/e2e/*" --reporter-options configFile=reporter-config.json'
          }
       }
     }
