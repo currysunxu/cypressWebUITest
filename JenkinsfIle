@@ -15,22 +15,6 @@ pipeline {
         script {
           case_tag = "${params.environment}".toLowerCase()
           println ("case_tag after initial " + case_tag)
-          if (env.environment == 'QA'){
-             case_tag = 'qa'
-          }
-          else if (env.environment == 'STG'){
-             case_tag = 'stg'
-          }
-          else if (env.environment == 'STG_SG'){
-             case_tag = 'stg_sg'
-          }
-          else if (env.environment == 'LIVE'){
-             case_tag = 'live'
-          }
-          else if (env.environment == 'LIVE_SG'){
-             case_tag = 'live_sg'
-          }
-          println ("case_tag after if else " + case_tag)
 
           sh 'yarn install --frozen-lockfile'
           sh "yarn cypress:run --env configFile=${case_tag}  --spec cypress/integration/e2e/* --reporter-options configFile=reporter-config.json"
