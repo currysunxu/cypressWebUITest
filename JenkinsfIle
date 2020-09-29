@@ -3,13 +3,9 @@ pipeline {
     label 'ETQA-MAC2'
   }
 
-   parameters {
-      choice(name:'environment',choices:['QA','STG','LIVE'],description:'')
-   }
-
-   environment {
-        case_tag = 'stg'
-   }
+  parameters {
+        choice(name:'environment',choices:['QA','STG','STG_SG','LIVE','LIVE_SG'],description:'')
+    }
 
   stages {
     stage('build and test') {
@@ -17,8 +13,15 @@ pipeline {
       steps {
         sh 'npm --version'
         script {
+          case_tag = "${params.environment}".toLowerCase()
           if (env.environment == 'QA'){
              case_tag = 'qa'
+          }
+          else if (env.environment == 'STG'){
+                       case_tag = 'stg'
+          }
+          else if (env.environment == 'STG_SG'){
+                       case_tag = 'stg_sg'
           }
           else if (env.environment == 'LIVE'){
              case_tag = 'live'
