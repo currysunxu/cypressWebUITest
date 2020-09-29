@@ -23,6 +23,9 @@ pipeline {
           else if (env.environment == 'LIVE'){
              case_tag = 'live'
           }
+          else if (env.environment == 'LIVE_SG'){
+             case_tag = 'live_sg'
+          }
           sh 'yarn install --frozen-lockfile'
           sh 'yarn cypress:run --env configFile=${case_tag}  --spec "cypress/integration/e2e/*" --reporter-options configFile=reporter-config.json'
          }

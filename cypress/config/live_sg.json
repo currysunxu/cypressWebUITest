@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://study.ef.com/",
+  "baseUrl": "https://study.ef.com/portal/#/login",
   "auth_api_server": "https://auth-svc.ef.com/api/v1/auth/login",
   "pt_api_server": "https://pt.ef.com/",
   "hf_study_url": "https://highflyers.ef.com/Login/StudyAutoLogin?token=",
@@ -14,8 +14,10 @@
   "env": {
     "username": "hf3.id.01",
     "small_star_v3": "ss3.id.01",
+    "high_flyer_v2": "hf2.id.01",
     "high_flyer_v3": "hf3.id.01",
     "traiblazer_v3": "tb3.id.01",
+    "front_runner": "fr.id.01",
     "pt_user":"amy.wang",
     "sso_username": "athena.e1@ef.com",
     "sso_password": "efef@444",
