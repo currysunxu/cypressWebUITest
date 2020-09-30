@@ -1,4 +1,6 @@
 require('cypress-xpath')
+import {env} from "../../integration/testData/testPortal.data";
+
 describe('EF portal login page custom commands', function () {
 
     const expectedResult = 'Unit Quiz'
@@ -17,7 +19,7 @@ describe('EF portal login page custom commands', function () {
     beforeEach(function setUser() {
         // var hfv2 = user.filter(function (e) { return e.type == "high_flyer_v2";})[0]
         //TODO add live sg test data
-        cy.skipByEnv('live_sg')
+        cy.skipByEnv(env.LIVE_SG)
         cy.portalLogin('username')
     })
 

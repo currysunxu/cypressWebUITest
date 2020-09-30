@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import {env} from "../../integration/testData/testPortal.data";
 
 const checkGrammarProUI = () => {
   cy.contains('欢迎来到Grammar Pro')
@@ -21,7 +22,7 @@ const checkStoryTellerUI = () => {
 describe('Verify each product card', function () {
   this.beforeEach( function() {
     //TODO add live sg test data
-    cy.skipByEnv('live_sg')
+    cy.skipByEnv(env.LIVE_SG)
     cy.portalLogin('username')
   })
 
@@ -38,7 +39,7 @@ describe('Verify each product card', function () {
   })
 
   it("Verify Story Teller card", function() {
-    cy.skipByEnv('live')
+    cy.skipByEnv(env.LIVE)
     cy.window_open("Storytellers", "text");
     cy.visit(Cypress.config('baseUrl')+('portal/#/story-teller'))
     checkStoryTellerUI()

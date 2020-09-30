@@ -31,7 +31,7 @@ pipeline {
             subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
             body: '''${SCRIPT, template="groovy-html.template"}''',
             mimeType: 'text/html',
-            to: "curry.sun@ef.com,nancy.zhangcr@ef.com,cindy.song@ef.com,Eileen.Chen@ef.com",
+            to: "curry.sun@ef.com,nancy.zhangcr@ef.com,cindy.song@ef.com,Eileen.Chen@ef.com,connie.liu.rr@ef.com",
             from: "qa.testauto@ef.com"
         )
     }

@@ -24,3 +24,10 @@ export function buildTestPortal(jwtToken) {
     testPortal.version1 = decodeJwtToVersionOne(jwtToken)
     testPortal.version3 = decodeJwtToVersionThree(jwtToken)
 }
+
+export const env={
+    "STG":"stg",
+    "STG_SG":"stg_sg",
+    "LIVE":"live",
+    "LIVE_SG":"live_sg",
+}

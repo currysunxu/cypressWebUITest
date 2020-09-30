@@ -1,10 +1,12 @@
+import {env} from "../../integration/testData/testPortal.data";
+
 describe.only(' portal login page custom commands', function () {
     let userName = Cypress.env('high_flyer_v3')
     let password = Cypress.env('password')
 
     beforeEach(function setUser() {
         //TODO add live sg test data
-        cy.skipByEnv('live_sg')
+        cy.skipByEnv(env.LIVE_SG)
         cy.loginPortalByUI(userName, password)
     })
 
