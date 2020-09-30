@@ -3,6 +3,7 @@ describe.only(' portal login page custom commands', function () {
     let password = Cypress.env('password')
 
     beforeEach(function setUser() {
+        cy.skipByEnv('live_sg')
         cy.loginPortalByUI(userName, password)
     })
 

@@ -74,4 +74,10 @@ function parseUrlByWindow(window, localStorageKey, url) {
     return newWindowUrl
 }
 
+Cypress.Commands.add('skipByEnv', function(env) {
+    if(Cypress.env('configFile') == env){
+        this.skip()
+    }
+})
+
 

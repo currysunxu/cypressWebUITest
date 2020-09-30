@@ -19,7 +19,8 @@ const checkStoryTellerUI = () => {
 }
 
 describe('Verify each product card', function () {
-  this.beforeEach(() => {
+  this.beforeEach( function() {
+    cy.skipByEnv('live_sg')
     cy.portalLogin('username')
   })
 
@@ -35,7 +36,8 @@ describe('Verify each product card', function () {
     checkOnlineClassUI()
   })
 
-  it("Verify Story Teller card", () => {
+  it("Verify Story Teller card", function() {
+    cy.skipByEnv('live')
     cy.window_open("Storytellers", "text");
     cy.visit(Cypress.config('baseUrl')+('portal/#/story-teller'))
     checkStoryTellerUI()
