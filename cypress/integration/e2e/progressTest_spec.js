@@ -16,6 +16,7 @@ describe('EF portal login page custom commands', function () {
     
     beforeEach(function setUser() {
         // var hfv2 = user.filter(function (e) { return e.type == "high_flyer_v2";})[0]
+        //TODO add live sg test data
         cy.skipByEnv('live_sg')
         cy.portalLogin('username')
     })

@@ -20,6 +20,7 @@ const checkStoryTellerUI = () => {
 
 describe('Verify each product card', function () {
   this.beforeEach( function() {
+    //TODO add live sg test data
     cy.skipByEnv('live_sg')
     cy.portalLogin('username')
   })
