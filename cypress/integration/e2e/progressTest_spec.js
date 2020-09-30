@@ -27,6 +27,7 @@ describe('EF portal login page custom commands', function () {
     })
 
     it('check progress test status', function () {
+        cy.checkElementPresent(expectedResult)
         cy.enterProgressTest()
         cy.contains("查看结果").should('be.visible')
         cy.contains("等待老师评分。").should('be.visible')
@@ -35,6 +36,7 @@ describe('EF portal login page custom commands', function () {
     })
 
     it('check progress test result', function () {
+        cy.checkElementPresent(expectedResult)
         cy.enterProgressTest()
         cy.get('[class^=test-item__link]').first().click()
         cy.get('[class^=test-details__result-description]').should('have.text', '你将在写作及口语测试评分完成后获得本单元测试总分。')

@@ -3,13 +3,9 @@ pipeline {
     label 'ETQA-MAC2'
   }
 
-   parameters {
-      choice(name:'environment',choices:['QA','STG','LIVE'],description:'')
-   }
-
-   environment {
-        case_tag = 'stg'
-   }
+  parameters {
+        choice(name:'environment',choices:['STG','STG_SG','LIVE','LIVE_SG'],description:'')
+    }
 
   stages {
     stage('build and test') {
@@ -17,14 +13,11 @@ pipeline {
       steps {
         sh 'npm --version'
         script {
-          if (env.environment == 'QA'){
-             case_tag = 'qa'
-          }
-          else if (env.environment == 'LIVE'){
-             case_tag = 'live'
-          }
+          case_tag = "${params.environment}".toLowerCase()
+          println ("case_tag after initial " + case_tag)
+
           sh 'yarn install --frozen-lockfile'
-          sh 'yarn cypress:run --env testEnv=${case_tag}  --spec "cypress/integration/e2e/*" --reporter-options configFile=reporter-config.json'
+          sh "yarn cypress:run --env configFile=${case_tag}  --spec cypress/integration/e2e/* --reporter-options configFile=reporter-config.json"
          }
       }
     }

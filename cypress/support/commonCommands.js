@@ -14,7 +14,7 @@ Cypress.Commands.add('loginPortalByUI', (username, password) => {
     cy.visit('/')
     cy.get('[type=text]').type(username)
     cy.get('[type=password]').type(password)
-    cy.contains('登录').click({force:true})
+    cy.get('*[class^=" c-operation__btn"]').click({force:true})
 })
 
 Cypress.Commands.add('loginPortalByApi', (userName,password) => {
